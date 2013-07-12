@@ -1,4 +1,6 @@
--@ val title:String
--@ val headline:String
+- import net.shantitree.calm.HtmlHelpers._
+-@ val addition:Addition
+- attributes("sectionTitle") = "hello calm"
+- addToHeader(addition, <script></script>)
 
 p= "Hello, Calm!"

@@ -1,0 +1,115 @@
+@import "../../../styles/lib.less";
+@import "../../../styles/color.less";
+@import "../../../styles/img.less";
+
+.font-face(@file; @name) {
+  font-family: @name;
+  src: url("../../../fonts/@{file}.eot");
+  src: local("☺"), url("../../../fonts/@{file}.woff") format("woff"), url("../../../fonts/${file}.ttf") format("truetype"), url("../../../fonts/${file}.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face { .font-face("Book_Akhanake", freehand-text)}
+@font-face { .font-face("UPC-Nosegay", p-text) }
+@font-face { .font-face("Sawasdee", h-text) }
+
+@h-font-size: 14px;
+h1 { font-size: (@h-font-size + 17); font-family: h-text}
+h2 { font-size: (@h-font-size + 14); font-family: h-text}
+h3 { font-size: (@h-font-size + 10); font-family: h-text}
+h4 { font-size: (@h-font-size + 6); font-family: h-text}
+h5 { font-size: (@h-font-size + 2); font-family: h-text}
+h6 { font-size: (@h-font-size); font-family: h-text}
+
+body {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+p { color: @p-color-0 }
+h1, h2, h3, h4, h5, h6 { color: @h-color-0 }
+ul.text li { color: @bullet-list-color-0 }
+
+.content-box { margin-top: 25px}
+.box-shadow { .m-box-shadow }
+
+#bg-box { background: @site-bg-color url(@site-bg-img) repeat-x }
+
+#site-logo {
+  display:block;
+  text-decoration: none;
+  padding: 15px 0px 15px 10px;
+}
+
+#site-content-header {
+  background: url(../imgs/site-content-header-bg-1.png) repeat;
+  .container {
+    padding: 5px 10px 5px 0px;
+    .span12 {
+      margin-top:0px;
+    }
+    h5 {
+      font-family: h-text;
+      font-weight: bold;
+      text-align: right;
+      color:white;
+      padding-top:0px;
+      padding-bottom:0px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+  }
+}
+body, #site-content {
+  background: url(../imgs/site-content-bg-1.png) repeat;
+}
+
+#site-nav {
+  font-size: 15px;
+  font-weight: normal;
+  font-family: freehand-text;
+  .navbar {
+    margin-bottom: 0px;
+    @media(min-width: 1200px) { margin-bottom: 20px }
+    .nav { margin-right: 0px }
+  }
+  .nav {
+    float: right;
+    li.dropdown {
+      &.open > .dropdown-toggle {
+        background-color: transparent;
+        color: white;
+        .caret(white);
+      }
+      & > .dropdown-toggle {
+        .caret(@site-nav-f-color);
+      }
+    }
+    & > li > a {
+        color: @site-nav-f-color;
+        font-weight: bold;
+        .text-shadow-1;
+        text-align: center;
+    }
+  }
+  .dropdown-menu {
+    a {
+      color : @site-nav-drop-f-color;
+      padding: 8px 25px;
+      &:hover { color : @site-nav-f-color-hover }
+    }
+  }
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+a.btn-img {
+  display: block;
+  text-decoration: none;
+  &.center { text-align: center }
+  &.left { text-align: left }
+  &.right { text-align: right }
+}
+

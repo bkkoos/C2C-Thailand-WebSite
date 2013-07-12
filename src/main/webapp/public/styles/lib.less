@@ -1,0 +1,53 @@
+.round-border() { border-radius: 6px 6px 6px 6px }
+.round-border-bottom() { border-radius: 0px 0px 6px 6px }
+.round-border-top() { border-radius: 6px 6px 0px 0px }
+/* shadow */
+.m-box-shadow(@radius: 6px; @shadow: 1px 1px 5px; @color: #656565) {
+  -moz-border-radius: @radius; /* Firefox */
+  -webkit-border-radius: @radius; /* Safari and Chrome */
+  border-radius: @radius; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+
+  -moz-box-shadow: @shadow @color; /* Firefox */
+  -webkit-box-shadow: @shadow @color; /* Safari and Chrome */
+  box-shadow: @shadow @color; /* Opera 10.5+, future browsers and IE6+ using IE-CSS3 */
+  behavior: url(ie-css3.htc); /* This lets IE know to call the script on all elements which get the 'box' class */
+}
+
+.caret(@color) {
+  .caret {
+    border-bottom-color: @color;
+    border-top-color: @color;
+  }
+}
+
+.rotate(@deg) {
+  transform: rotate(@deg);
+  -ms-transform: rotate(@deg); /* IE 9 */
+  -webkit-transform: rotate(@deg); /* Safari and Chrome */
+}
+.th-content {
+  @font-size: 22px;
+  font-family: p-text;
+  font-size: @font-size;
+}
+
+.text-shadow-1 { text-shadow: 0px 1px 0px rgb(0,0,0) }
+.text-shadow-2 { text-shadow: 2px 3px 3px black }
+.text-shadow-3 { text-shadow: 2px 3px 3px gray }
+
+.opacity-01 { opacity: 0.1; filter: alpha(opacity=10) }
+.opacity-02 { opacity: 0.2; filter: alpha(opacity=20) }
+.opacity-03 { opacity: 0.3; filter: alpha(opacity=30) }
+.opacity-04 { opacity: 0.4; filter: alpha(opacity=40) }
+.opacity-05 { opacity: 0.5; filter: alpha(opacity=50) }
+.opacity-06 { opacity: 0.6; filter: alpha(opacity=60) }
+.opacity-07 { opacity: 0.7; filter: alpha(opacity=70) }
+.opacity-08 { opacity: 0.8; filter: alpha(opacity=80) }
+.opacity-09 { opacity: 0.9; filter: alpha(opacity=90) }
+.opacity-1 { opacity: 1; filter: alpha(opacity=100) }
+
+.block-a-link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}

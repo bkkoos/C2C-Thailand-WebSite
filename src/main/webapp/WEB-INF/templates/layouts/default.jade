@@ -1,12 +1,40 @@
--@ val title: String
--@ val headline: String = title
+- import net.shantitree.calm.HtmlHelpers._
+- import net.shantitree.calm.{C2CHtmlHelpers => c2c }
+
+-@ val title: String = ""
+-@ val sectionTitle: String = ""
 -@ val body: String
+-@ val addition:Addition
+-@ val contentHeader: String
 
 !!! 5
 html
   head
-    title= title
+    meta(charset="utf8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title #{title} : #{sectionTitle}
+    = cssList("bootstrap/css", "bootstrap.min", "bootstrap-responsive.min")
+    = c2c.less("main")
+    = jsList("js", "less-setting", "less-1.3.3.min")
+    = additionalHeaders(addition).getOrElse("")
   body
-    #content
-      h1= headline
-      != body
+    #bg-box
+      #root-box
+        #site-header
+          .container
+            .row
+              .span3
+                a#site-logo(src="#") = c2c.img("main", "c2c-logo.png")
+              .span9
+                #site-nav site-nav
+          #site-content-header
+            .container
+              .row
+                .span12
+                  h5 =contentHeader
+        #site-content
+          .container
+            != body
+
+    = jsList("js", "jquery-1.9.1.min", "grow_full")
+    = js("bootstrap/js", "bootstrap")

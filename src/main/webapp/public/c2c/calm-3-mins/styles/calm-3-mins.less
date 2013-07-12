@@ -1,0 +1,58 @@
+@import "../../../styles/lib.less";
+@import "../../../styles/img.less";
+@import "../../../styles/color.less";
+
+@media(min-width: 360px) {
+  .player {
+    min-width: 284px;
+    min-height: 140px;
+  }
+}
+@media(min-width: 768px) {
+  .player {
+    min-width: 341px;
+    min-height: 168px;
+  }
+}
+@media(min-width: 1024px) {
+  .player {
+    min-width: 569px;
+    min-height: 280px;
+  }
+}
+#calm-3-mins {
+  padding-left: 1px;
+  padding-top: 20px;
+}
+.c-3-mins-item {
+  border: 1px dotted #666666;
+  margin: 10px;
+  .thumbnail {
+    position: relative;
+    padding: 10px;
+    background: #DEF2F6;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    .caption {
+      padding: 0px;
+      position: absolute;
+      color: white;
+      bottom: 0px;
+      left: 10px;
+      right: 10px;
+      .text-shadow-1;
+      text-align: center;
+      font-size: 16px;
+      font-family: freehand-text;
+      font-weight: normal;
+      background: #1B8D9E;
+      .opacity-06;
+    }
+  }
+  a:hover {
+    background: white;
+  }
+}
+
+

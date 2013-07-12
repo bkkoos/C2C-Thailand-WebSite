@@ -1,4 +1,8 @@
-- attributes("title") = "Scalatra: a tiny, Sinatra-like web framework for Scala"
-- attributes("headline") = "Welcome to Scalatra"
+- import net.shantitree.calm.HtmlHelpers._
+- import scala.xml.NodeBuffer
+- import scala.collection.mutable.{ Map => MMap }
+
+-@ val addition: MMap[String, NodeBuffer]
+- addToHeader(addition, <link /><script></script>)
 
 p= "Hello, Scalate!"
