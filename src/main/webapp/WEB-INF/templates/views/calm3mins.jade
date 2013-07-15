@@ -1,0 +1,16 @@
+- import net.shantitree.calm.HtmlHelpers._
+-@ val addition:Addition
+- attributes("sectionTitle") = "hello calm"
+- addToHeader(addition, <script></script>)
+
+.row
+  #calm-3-mins.span12
+    /$ @for(m <- data)
+    .c-3-mins-item
+      a.thumbnail.fancybox(href="#day@m.day" title="@m.titleTh")
+        .img @c2cImg("calm-3-mins")(m.image)
+        p.caption 
+
+      #day-at-m-day(style="display:none")
+        .flowplayer.player
+    /$

@@ -3,4 +3,70 @@
 - attributes("sectionTitle") = "hello calm"
 - addToHeader(addition, <script></script>)
 
-p= "Hello, Calm!"
+#home-box.content-box
+  #prologue.row
+    .span3
+      #welcome
+        h4 ขอต้อนรับทุกท่าน
+        h4 เข้าสู่โครงการ
+        h4 เลือกทางที่สงบ
+    .span3
+      #p1.detail
+        | เพื่อทำให้เรามาพบกัน
+    .span3
+      #p2.detail
+        | ด้วยหลัการสำคัญ 3 ประการ
+        ol
+          li การรับฟัง เสียงหัวใจตนเอง
+          li การเชื่อมโยงกับพลังอำนาจ
+          li การเพิ่มพลังความสามารถที่จะยืนหยัดในทุกสถานการณ์
+    .span3
+      #p3.detail 
+        | โครงการ "เลือกทางที่สงบ" 
+
+  #present
+    .isotope-item
+      #calm-card
+        h4 หยิบบัตรคุณค่า 16 ประการ
+        .carousel-box
+          .carousel
+            / @for (c <- cards) 
+            a(href="/calm-room/calm-card")
+              .caption-panel
+                .caption-text
+                  p @c.titleTh br/ @c.title
+            / end @for (c <- cards)
+
+    .isotope-item
+      #calm-3-mins
+        h4 3 นาที ที่สงบเย็น
+        .carousel-box
+          .carousel
+            / for (m <- c3mins)
+            a(href="/calm-room/3-minutes-of-calm")
+              .caption-panel
+                .caption-text
+                  | ฉัน คือ br/ @m.titleTh
+
+            / end for (m <- c3mins)
+
+    .isotope-item
+      #news-event
+        h4 ข่าวสาร/กิจกรรม
+        .carousel-box
+          .group-body
+            .carousel
+              / for (d <- news
+              .caption-panel
+                .box-item
+                  .date
+                    / time datetime
+                  .img.pull-left
+                    / @c2cImg("news-event")
+                  .text.media-body
+                    h6.title
+                      / @d.title - @d.titleTh
+                    p.th-content
+                    a(id="") อ่านต่อ...
+              / end for (d <- news)
+

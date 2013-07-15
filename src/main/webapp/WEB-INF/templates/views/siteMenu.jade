@@ -1,0 +1,17 @@
+.navbar
+  ul.nav
+    / @for (m <- menus) { if (!m.subMenu.isEmpty) {
+    li.dropdown
+      a.dropdown-toggle(href="#" data-toggle="dropdown")
+        /@m.name_th
+        b.caret
+        ul.dropdown-menu
+          /@for (sm <- m.subMenu.get)
+          li
+            a(href="/@sm.route") 
+              /@Html(sm.name_th)
+          /end @for
+      /else if
+    li
+      a(href="/@m.route") 
+        /@Html(m.name_th)

@@ -1,0 +1,57 @@
+- import net.shantitree.calm.HtmlHelpers._
+-@ val addition:Addition
+- attributes("sectionTitle") = "hello calm"
+- addToHeader(addition, <script></script>)
+
+.row
+  .span9
+    .box-item
+      .date 
+        time(datetime="@DateHelpers.format(d.date)") @DateHelpers.toThaiDate(d.date)
+      .img.pull-left
+        / @c2cImg("news-event")(d.imagePath + d.image, Map("oid" -> d.id.toString))
+      .text.media-body
+        h6.title
+          / @d.title - @d.titleTh
+        p.th-content
+          / @d.shortSummary
+        a(oid="@d.id") อ่านต่อ
+      br(style="clear:both")
+
+#news-event.content-box(data-spay="scroll" data-target=".month-nav")
+  / @for (y <- groups) {
+  / @y._1.yyyy
+  #year-xxx.group-box-year
+    / @for (m <- y._2) {
+    / @m._1
+    #month-xxx.mm_yyyy.group-box-month
+      .row
+        h5.group-title.span2.offset5
+          span 
+            / @m._1.mmm_yy
+      .group-body
+        / @for(pair <- ViewHelpers.toPairs(m._2))
+        .row
+          / @newsItem(pair._1, "left")
+          / @newsItem(pair._2, "right")
+        / end @for
+    / end @for
+  / end @for
+div(style="height: 50px")
+#year-month-nav.navbar-fixed-bottom
+  .container
+    / @for (y <- groups) {
+    ul.nav.nav-pills
+      / @for (m <- y._2) {
+      li
+        / @m._1.mm_yyyy
+        a(href="#month-xxx")
+          h5
+            / @m._1.mmm
+      / end @for
+      li.year-title
+        / @y._1.yy
+    / end @for
+
+
+

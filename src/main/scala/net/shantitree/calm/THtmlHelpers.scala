@@ -44,5 +44,5 @@ trait THtmlHelpers extends TTypeAlias {
     files.map { file => tagGen(path, file, attrs)}(breakOut)
   }
   def getUrl(path: String, file:String, fileType:String) =
-    "public/" + path + "/" + file + fileType
+    "/public/" + path + "/" + file + fileType
 }
