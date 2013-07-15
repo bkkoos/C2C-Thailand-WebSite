@@ -12,6 +12,17 @@ object CalmBuild extends Build {
   val ScalaVersion = "2.10.2"
   val ScalatraVersion = "2.2.1"
 
+  val orientdbDeps = {
+    val version = "1.4.0";
+    val ns = "com.orientechnologies";
+    Seq(
+      ns % "orientdb-core" % version,
+      ns % "orientdb-object" % version,
+      ns % "orientdb-client" % version,
+      ns % "orientdb-enterprise" % version
+    );
+  }
+
   lazy val project = Project (
     "calm",
     file("."),
@@ -28,7 +39,7 @@ object CalmBuild extends Build {
         "ch.qos.logback" % "logback-classic" % "1.0.6" % "runtime",
         "org.eclipse.jetty" % "jetty-webapp" % "8.1.8.v20121106" % "container",
         "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "container;provided;test" artifacts (Artifact("javax.servlet", "jar", "jar"))
-      ),
+      ) ++ orientdbDeps,
       scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>
         Seq(
           TemplateConfig(

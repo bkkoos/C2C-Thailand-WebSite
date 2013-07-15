@@ -1,9 +1,8 @@
 package net.shantitree.calm
 
-import org.scalatra._
-import scalate.ScalateSupport
-import scala.xml.NodeBuffer
 import scala.collection.mutable.{ Map => MMap }
+import Db._
+import net.shantitree.calm.models.Sitemap
 
 class CalmScalatraServlet extends CalmStack with TTypeAlias {
 
@@ -14,7 +13,9 @@ class CalmScalatraServlet extends CalmStack with TTypeAlias {
     contentType="text/html"
     val title = "Choose to be Calm : เลือกทางที่สงบ"
     val contentHeader = "หน้าหลัก"
+
     jade("index", "title" -> title, "addition" -> addition, "contentHeader" -> contentHeader)
+
   }
 
 }
