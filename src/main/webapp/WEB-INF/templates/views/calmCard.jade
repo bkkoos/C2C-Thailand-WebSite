@@ -1,0 +1,45 @@
+- import net.shantitree.calm.HtmlHelpers._
+-@ val addition:Addition
+- attributes("sectionTitle") = "hello calm"
+- addToHeader(addition, <script></script>)
+
+.row
+  .card-box.span10.th-content-box
+    .card-img-box
+      /$ @for (c <- card)
+      #at-id-card-img.card-img @cardImg(c, "-rotate", "png")
+      /$ end
+    .row
+      .card-text-box.span9.offset1
+        /$ @for (c <- cards)
+        #at-id-card.card
+          .row
+            .span6.offset2
+              .quote-box
+                h2 @c.titleTh - @c.title
+                .quote-start
+                  p.quote-text.quote-end
+                    / @c.quote&nbsp;
+          .row
+            .span7.offset1
+              .detail-box
+                h6 การประยุกต์ใข้
+                p @Html(c.application)
+                br/
+                h6 ข้อย้ำเตือน
+                p @Html(c.statement)
+        /$ end
+
+  #carousel-box.span2
+    a#ui-carousel-prev.btn-img.center(href="#") @img()("decor/up-circle-btn-1.png")
+    #carousel
+      /$ @for (c <- cards)
+      a.slide(href="#@c.id-card")
+        .caption-panel
+          /$ @cardImg(c)
+          .caption-text
+            p at-c-titleTh br/ at-c-title
+      /$ end
+    a#ui-carousel-next.btn-img.center(href="#") @img()("decor/down-circle-btn-1.png")
+
+
